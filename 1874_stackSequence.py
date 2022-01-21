@@ -3,19 +3,20 @@ import sys
 n = int(sys.stdin.readline())
 n_array = []
 stack = []
+count = 0 
 result = []
 error = False;
 #for appending stack, made reverse stack
 for i in range(n):
     n_array.append(int(i+1))
-n_array.reverse()
+n_array.reverse()   
 
-stack.append(n_array.pop)
 for i in range(n):
     input_ = int(input())
-    while input_ > stack[-1]:
-        stack.append(n_array.pop)
+    while input_ > count:
         result.append("+")
+        count += 1 
+        stack.append(count)
     if input_ == stack[-1]:
         stack.pop()
         result.append("-")
@@ -26,5 +27,5 @@ for i in range(n):
 if  error==True:
     print("NO")
 else:
-    print(result)
+    print('\n'.join(result))
 
