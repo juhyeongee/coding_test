@@ -1,28 +1,31 @@
 import sys
 
-stack = list(sys.stdin.readline())
-how_many = int(sys.stdin.readline())
-stack.pop()
-index = len(stack) -1
+stack = list(sys.stdin.readline().strip())
+orders = int(sys.stdin.readline())
+temp_stack = []
 
 
-for i in range(how_many):
+#push와 pop만 이용해서 출력하기!
+for i in range(orders):
     order = sys.stdin.readline().strip()
     if order == "L":
-        if index <= 0:
+        if len(stack) == 0:
             pass
         else:
-            index -= 1
+            temp_stack.append(stack.pop())
     elif order == "D":
-        if index < len(stack)-1:
-            index += 1 
+        if len(temp_stack)== 0:
+            pass
+        else:
+            stack.append(temp_stack.pop())
     elif order == "B":
-        del stack[index]
-        index -= 1
+        if len(stack) == 0:
+            pass
+        else:
+            stack.pop()
     else: 
         add = order.split()
         if add[0] == "P" :
-            stack.insert(index,add[1])
-            index += 1
+            stack.append(add[1])
 
-print("".join(stack))
+print("".join(stack + list(reversed(temp_stack))))
