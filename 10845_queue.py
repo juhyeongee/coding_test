@@ -3,7 +3,7 @@ import sys
 orders = int(sys.stdin.readline())
 queue = []
 
-for i  in range(orders):
+for i in range(orders):
     order = sys.stdin.readline().split()
     if order[0] == "size":
         print(len(queue))
@@ -13,9 +13,15 @@ for i  in range(orders):
         else:
             print(0)
     elif order[0] == "front":
-        print(queue[0])
+        if len(queue) == 0:
+            print(-1)
+        else:
+            print(queue[0])
     elif order[0] == "back":
-        print(queue[-1])
+        if len(queue) == 0:
+            print(-1)
+        else:
+            print(queue[-1])
     elif order[0] == "pop":
         if len(queue) == 0:
             print(-1)
