@@ -2,7 +2,7 @@ from queue import Queue
 import sys
 import time 
 
-start= time.time()
+#start= time.time()
 #trial= 0 
 #que = Queue()
 
@@ -13,13 +13,14 @@ index = 0
 result = []
 #index와 increase는 분리되었어야 했다. 이게 분리가 안되니까 계속 머릿속에서 돌았던거
 while len(num_list) != 0:
-    index =+ increase -1
+    index += increase -1 
     if index >= len(num_list):
         index = index % len(num_list)
-        
     result.append(num_list.pop(index))
 
-print(result)
+print("<", ', '.join(str(i) for i in result)[:], ">", sep="") 
+
+#와 += 를 =+로 표기하니까 index가 변화가 없던것. 근데 왜 오류는 안나냐;;
 
 """ Queue import 안하고 풀기.. queue때문에 늦어지는 것 같긴함
 for i in range(len(num_list)):
@@ -35,7 +36,3 @@ while len(result) != len(num_list):
 #que 리스트로 만드는 법 list(que.queue)
 #pop(n)
 
-
-end = time.time()
-
-print(f"{end - start:.5f} sec")
