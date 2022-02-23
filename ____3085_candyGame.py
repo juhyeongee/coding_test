@@ -2,9 +2,15 @@ N = int(input())
 
 a = [["A","B","C"], ["D","E","F"], ["G","H","I"]]
 result = 0
-for i in range(0,N):
-    for j in range(1, N):
-        while a[i][j-1] != a[i][j]:
-            result += 1
-        #a[i-1][j-1], a[i-1][j] = a[i-
-        
+
+#check horizontal
+
+def horizontal(arr,column):
+    length = 0 
+    for i in range(len(arr)-1):
+        temp_key = a[i][0][column] 
+        if temp_key == a[i+1][0][column]:
+            temp_key += 1
+        else: 
+            length = max(length, temp_key)
+            

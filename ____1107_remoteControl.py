@@ -13,6 +13,7 @@ def check(num):
     return True
 
 result = abs(n-100)
-print(result)
-print(check(234))
-            
+
+for i in range(1000001):
+    if check(i):
+        result = min(result, len(str(i))+ abs(i-n))

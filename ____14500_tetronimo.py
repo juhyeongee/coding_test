@@ -10,4 +10,8 @@ array = []
 for i in range(n):
     array.append(input().split())
 
-print(array)
+#최댓값 찾기
+result_list = []
+for i in range(n):
+    for j in range(m):
+        
